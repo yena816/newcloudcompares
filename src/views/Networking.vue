@@ -1,31 +1,8 @@
 <template>
-  
-  <v-card>
-    <v-card-title class="text-center justify-center py-6">
-      <h1 class="font-weight-bold display-3 basil--text">Cloud Comparison</h1>
-    </v-card-title>
-    <v-tabs
-      v-model="tab"
-      background-color="primary"
-      dark
-    >
-      <v-tab
-        v-for="item in items"
-        :key="item.tab"
-      >
-        {{ item.tab }}
-      </v-tab>
-    </v-tabs>
-
-    <v-tabs-items v-model="tab">
-      <v-tab-item
-        v-for="item in items"
-        :key="item.tab"
-      >
-        <v-card flat>
-          <v-card>
+    <div class = "networking">
+        <v-card>
             <v-card-title>
-             {{ item.tab }}
+                Networking
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"
@@ -37,74 +14,20 @@
             </v-card-title>
             <v-data-table 
               :headers="headers"
-              :items="item.content"
+              :items="items"
               :search="search"
             ></v-data-table>
           </v-card>
-        </v-card>
-      </v-tab-item>
-    </v-tabs-items>
-  </v-card>
+
+    </div>
 </template>
 
 <script>
-  export default {
+export default {
     data () {
       return {
         tab: null,
         items: [
-          { tab: 'Storage', content: [
-            {
-              name: 'Backup',
-              AWS: 'AWS Backup',
-              Azure: 'Azure Backup',
-              GCP: 'Image',
-            
-            },
-            {
-              name: 'Snapshots',
-              AWS: 'EBS Snapshots',
-              Azure: 'VHD Snapshot',
-              GCP: 'Persistent Disk Snapshot',
-            },
-            {
-              name: 'Data Transport',
-              AWS: 'Import/Export Snowball',
-              Azure: 'Import/Export',
-              GCP: '',
-            },
-            {
-              name: 'Long Term Cloud Storage & Archiving',
-              AWS: 'Amazon Glacier',
-              Azure: 'Azure Archive Storage',
-              GCP: 'Cloud Storage Nearline and Coldline',
-            },
-            {
-              name: 'Object Storage',
-              AWS: 'Amazon Simple Storage Service (S3)',
-              Azure: 'Azure Blob Storage',
-              GCP: 'Cloud Storage',
-            },
-            {
-              name: 'File Storage (SMB Compatible)',
-              AWS: 'Amazon Elastic File System (EFS)',
-              Azure: 'Azure File Storage',
-              GCP: 'File Store',
-            },
-            {
-              name: 'Virtual Machine Disk Storage',
-              AWS: 'Amazon Elastic Block Storage (EBS)',
-              Azure: 'Azure Page Blobs/Premium Storage',
-              GCP: 'Persistent Disk',
-            },
-            {
-              name: 'Hybrid Storage/Storage Gateway',
-              AWS: 'AWS Storage Gateway',
-              Azure: 'Azure StorSimple',
-              GCP: '',
-            },
-          ], },
-          { tab: 'Networking', content: [
             {
               name: 'Site-to-Site VPN',
               AWS: 'AWS Site-to-Site VPN',
@@ -172,22 +95,7 @@
               Azure: 'Azure CDN',
               GCP: 'Cloud CDN',
             },
-          ], },
-          { tab: 'Compute', content: '' },
-          { tab: 'Hybrid Identity', content: '' },
-          { tab: 'Database', content: '' },
-          { tab: 'Security', content: '' },
-          { tab: 'Management', content: '' },
-          { tab: 'IAM', content: '' },
-          { tab: 'AI/ML/BigData', content: '' },
-          { tab: 'Application', content: '' },
-          { tab: 'Business', content: '' },
-          { tab: 'Migration', content: '' },
-          { tab: 'Disaster Recovery', content: '' },
-          { tab: 'Developer', content: '' },
         ],
-    
-      
         search: '',
         headers: [
           {
@@ -201,10 +109,7 @@
           { text: 'GCP', value: 'GCP' },
          
         ],
-        
-      
-    
       }
     },
-  }
+}
 </script>
